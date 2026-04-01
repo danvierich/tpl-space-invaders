@@ -33,6 +33,22 @@ Open `index.html` directly in a browser to run the game.
 - **HUD is HTML, not canvas**: score and lives are DOM elements updated via `updateHUD()`, keeping rendering concerns separate.
 - **Overlay** (`#overlay`) is an absolutely-positioned div over the canvas, toggled with the `.hidden` class, reused for start / game-over / victory screens.
 
+### Sound system
+- `soundOn` flag is `false` until `startPlaying()` is called – no audio fires on the start/overlay screen.
+- `AudioContext` is created lazily on first sound call (satisfies browser autoplay policy).
+- All sounds are synthesised via Web Audio API (no audio files): `tone()` for oscillator-based beeps, `noise()` for explosion bursts.
+- `sndMarch()` is called on every invader move tick and cycles through 4 frequencies (`MARCH` array).
+
+## Deployment
+
+| Target | Command |
+|---|---|
+| Preview locally | Open `index.html` in a browser (no server needed) |
+| Deploy to Netlify | `netlify deploy --prod --dir .` |
+
+Live URL: **https://mellow-cuchufli-44fad4.netlify.app**
+GitHub: **https://github.com/danvierich/tpl-space-invaders**
+
 ## Visual style
 Defined by `space-invaders.png` (kept in repo as reference):
 - Background: `#ffffff`
