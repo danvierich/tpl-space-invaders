@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 – THEPEAKLAB</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="game-container">
+
+    <header id="hud">
+      <span id="brand">THEPEAKLAB</span>
+      <div id="hud-right">
+        <div id="lives-wrap">LIVES <span id="hearts"></span></div>
+        <div id="score-wrap">SCORE <span id="score">0000000</span></div>
+      </div>
+    </header>
+
+    <div id="canvas-wrap">
+      <canvas id="gameCanvas"></canvas>
+
+      <div id="overlay">
+        <div id="overlay-inner">
+          <p id="ol-title">404</p>
+          <p id="ol-sub">PAGE NOT FOUND</p>
+          <p id="ol-prompt">PRESS SPACE TO PLAY</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="mobile-controls">
+      <button id="btn-left" aria-label="Links">◀</button>
+      <button id="btn-shoot" aria-label="Schießen">FIRE</button>
+      <button id="btn-right" aria-label="Rechts">▶</button>
+    </div>
+
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>

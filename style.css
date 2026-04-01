@@ -1,0 +1,218 @@
+/* ─────────────────────────────────────────────
+   Base reset
+───────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: 'Press Start 2P', monospace;
+  color: #1a1a2e;
+}
+
+/* ─────────────────────────────────────────────
+   Game container
+───────────────────────────────────────────── */
+#game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 520px;
+  width: 100%;
+  padding: 24px 10px 20px;
+}
+
+/* ─────────────────────────────────────────────
+   HUD
+───────────────────────────────────────────── */
+#hud {
+  width: 520px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0 2px 14px;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+}
+
+#brand {
+  color: #1a1a2e;
+}
+
+#hud-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 7px;
+}
+
+#lives-wrap,
+#score-wrap {
+  font-size: 11px;
+  letter-spacing: 0.5px;
+}
+
+#hearts {
+  margin-left: 10px;
+}
+
+.heart-active {
+  color: #f77d7d;
+}
+
+.heart-empty {
+  color: #e0e0e0;
+}
+
+#score {
+  color: #5a7ef0;
+  margin-left: 10px;
+}
+
+/* ─────────────────────────────────────────────
+   Canvas wrapper & canvas
+───────────────────────────────────────────── */
+#canvas-wrap {
+  position: relative;
+  width: 520px;
+  height: 580px;
+  flex-shrink: 0;
+}
+
+#gameCanvas {
+  display: block;
+  background: #ffffff;
+}
+
+/* ─────────────────────────────────────────────
+   Overlay
+───────────────────────────────────────────── */
+#overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.93);
+}
+
+#overlay.hidden {
+  display: none;
+}
+
+#overlay-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  text-align: center;
+}
+
+#ol-title {
+  font-size: 52px;
+  color: #f77d7d;
+  line-height: 1;
+  letter-spacing: 4px;
+}
+
+#ol-sub {
+  font-size: 12px;
+  color: #1a1a2e;
+  letter-spacing: 1px;
+  min-height: 1em;
+}
+
+#ol-prompt {
+  font-size: 10px;
+  color: #aaa;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ─────────────────────────────────────────────
+   Mobile controls (hidden on desktop)
+───────────────────────────────────────────── */
+#mobile-controls {
+  display: none;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+#mobile-controls button {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 12px;
+  padding: 14px 22px;
+  background: #f77d7d;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  letter-spacing: 1px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  transition: opacity 0.1s;
+}
+
+#mobile-controls button:active {
+  opacity: 0.75;
+}
+
+#btn-shoot {
+  background: #5a7ef0;
+  padding: 14px 28px;
+}
+
+/* ─────────────────────────────────────────────
+   Responsive
+───────────────────────────────────────────── */
+@media (max-width: 560px) {
+  #game-container {
+    max-width: 100%;
+    padding: 12px 8px 16px;
+  }
+
+  #hud {
+    width: 100%;
+    font-size: 9px;
+  }
+
+  #canvas-wrap {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 520 / 580;
+  }
+
+  #gameCanvas {
+    width: 100%;
+    height: 100%;
+  }
+
+  #mobile-controls {
+    display: flex;
+  }
+
+  #ol-title {
+    font-size: 36px;
+  }
+
+  #ol-sub {
+    font-size: 9px;
+  }
+
+  #ol-prompt {
+    font-size: 8px;
+  }
+}
